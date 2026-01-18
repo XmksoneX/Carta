@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'serif';
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.fade-in-magic {
+    opacity: 0;
+    filter: blur(10px);
+    animation: reveal 2.5s ease-out forwards;
+}
+
+@keyframes reveal {
+    0% { opacity: 0; filter: blur(20px); transform: translateY(-20px); }
+    50% { opacity: 0.5; filter: blur(5px); }
+    100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+/* El Marco del Espejo */
+.mirror-title {
+    font-family: 'Cinzel Decorative', serif;
+    color: #e0f2ff;
+    font-size: 1.8rem;
+    text-align: center;
+    letter-spacing: 6px;
+    text-shadow: 0 0 15px rgba(17, 129, 204, 0.7);
+}
+
+.mirror-frame {
+    position: relative;
+    width: 82vw; 
+    height: 65vh;
+    max-width: 360px;
+    /* Borde con efecto de profundidad metálica */
+    border: 12px double #386496; 
+    border-radius: 200px 200px 30px 30px; 
+    box-shadow: 
+        0 0 40px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(17, 129, 204, 0.3);
+    background: #050505;
+    padding: 8px;
+}
+
+/* El Cristal del Espejo */
+.mirror-glass {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 190px 190px 15px 15px;
+    overflow: hidden;
+    mask-image: linear-gradient(black, black); 
+}
+
+/* Video adaptado al formato vertical */
+.magic-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1) saturate(1.2);
+    border-radius: 190px 190px 20px 20px;
+}
+
+/* Efecto de Reflejo y Niebla */
+.reflection-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(
+        135deg, 
+        rgba(255,255,255,0.1) 0%, 
+        rgba(255,255,255,0) 50%, 
+        rgba(255,255,255,0.05) 100%
+    );
+    pointer-events: none;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.6);
+}
+
+/* Texto Flotante */
+.magic-text {
+    font-family: 'Crimson Text', serif;
+    font-style: italic;
+    color: #ffffff;
+    font-size: 1.3rem;
+    opacity: 0.8;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes pulse {
+    from { opacity: 0.4; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.05); }
+}
